@@ -225,7 +225,6 @@ def write_to_csv(paper):
     """
     Writes the paper to a CSV file.
     """
-    
     with open("data/aaai_papers.csv", "a", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
         writer.writerow(paper.values())

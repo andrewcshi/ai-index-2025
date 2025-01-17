@@ -82,122 +82,19 @@ KEYWORDS = {
 }
 
 
-def process_intermediate(relative_link, base_url="https://icml.cc", headers=None):
-    """
-    Given a relative link (e.g. "/virtual/2024/poster/33112"), this function performs
-    the following steps:
-      1. Constructs the intermediate URL.
-      2. Loads that page and finds the anchor with text "Paper PDF".
-      3. Loads the "Paper PDF" page and finds the anchor with text "OpenReview".
-      4. Returns the final OpenReview link.
-    If any step fails, returns None.
-    """
-    if headers is None:
-        headers = {
-            "User-Agent": (
-                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                "AppleWebKit/537.36 (KHTML, like Gecko) "
-                "Chrome/117.0.0.0 Safari/537.36"
-            )
-        }
-
-    # Step 1: Construct the intermediate URL and load the page.
-    intermediate_url = base_url + relative_link
-    try:
-        resp_intermediate = requests.get(intermediate_url, headers=headers)
-        resp_intermediate.raise_for_status()
-    except requests.RequestException as e:
-        print(f"Error fetching intermediate link {intermediate_url}: {e}")
-        return None
-
-    soup_intermediate = BeautifulSoup(resp_intermediate.text, "html.parser")
-    # Step 2: Find the anchor with text exactly "Paper PDF"
-    pdf_anchor = soup_intermediate.find("a", string="Paper PDF")
-    if not (pdf_anchor and pdf_anchor.get("href")):
-        print(f"'Paper PDF' link not found on page: {intermediate_url}")
-        return None
-
-    pdf_link = pdf_anchor.get("href")
-    # If pdf_link is relative, prepend the base_url.
-    if not pdf_link.startswith("http"):
-        pdf_link = base_url + pdf_link
-
-    try:
-        resp_pdf = requests.get(pdf_link, headers=headers)
-        resp_pdf.raise_for_status()
-    except requests.RequestException as e:
-        print(f"Error fetching PDF link {pdf_link}: {e}")
-        return None
-
-    soup_pdf = BeautifulSoup(resp_pdf.text, "html.parser")
-    # Step 3: Find the anchor with text exactly "OpenReview"
-    openreview_anchor = soup_pdf.find("a", string="OpenReview")
-    if not (openreview_anchor and openreview_anchor.get("href")):
-        print(f"'OpenReview' link not found on page: {pdf_link}")
-        return None
-
-    final_link = openreview_anchor.get("href")
-    return final_link
-
-
-def get_paper_links(url):
-    """
-    Given the ICML papers URL, scrapes and returns a list of final paper links.
-    
-    Process:
-      1. Load the main page.
-      2. Select all <li> elements containing an <a> tag whose href begins with '/virtual/2024/'.
-      3. For each anchor, use process_intermediate() to follow the chain:
-         - Main page relative link &rarr; intermediate URL,
-         - From that page, get "Paper PDF" URL,
-         - Then from that page, get "OpenReview" URL.
-      4. Return the list of final OpenReview links.
-    """
-    headers = {
-        "User-Agent": (
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) "
-            "Chrome/117.0.0.0 Safari/537.36"
-        )
-    }
-    
-    try:
-        session = requests.Session()
-        response = session.get(url, headers=headers)
-        response.raise_for_status()
-    except requests.RequestException as e:
-        print(f"Error fetching the main URL: {e}")
-        exit(1)
-    
-    soup = BeautifulSoup(response.text, "html.parser")
-    # Select all <a> tags within <li> elements whose href starts with '/virtual/2024/'
-    anchors = soup.select("li a[href^='/virtual/2024/']")
-    # Get the relative links
-    relative_links = [a.get("href") for a in anchors if a.get("href")]
-    
-    final_links = []
-    # Use ThreadPoolExecutor for concurrent processing
-    with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-        # Submit processing for each relative link
-        futures = {executor.submit(process_intermediate, rlink, "https://icml.cc", headers): rlink 
-                   for rlink in relative_links}
-        for future in concurrent.futures.as_completed(futures):
-            rlink = futures[future]
-            try:
-                result = future.result()
-                if result:
-                    final_links.append(result)
-            except Exception as exc:
-                print(f"Error processing {rlink}: {exc}")
-    
-    return final_links
-
-
 def get_paper_attributes(url):
     """
-    Given a paper URL, scrapes and returns a dictionary of attributes.
+    Given an OpenReview paper URL, scrapes and returns a dictionary of attributes:
+      - link: The OpenReview URL.
+      - title: The paper title.
+      - abstract: The paper abstract.
+      - author_names: A list of authors.
     
-    (Function implementation to be added later.)
+    Process:
+      1. Load the OpenReview page.
+      2. Scrape the title from the <h2> tag with class "note_content_title".
+      3. Find the field with the label "Abstract:" and get its associated value.
+      4. Find the field with the label "Authors:" and get the author list.
     """
     pass
 
@@ -208,7 +105,13 @@ def valid_paper(paper):
     
     (Function implementation to be added later.)
     """
-    pass
+    for category, keywords in KEYWORDS.items():
+        # check title and abstract (case-insensitive)
+        if any(keyword.lower() in paper.get("title", "").lower() for keyword in keywords) \
+           or any(keyword.lower() in paper.get("abstract", "").lower() for keyword in keywords):
+            paper["category"] = category  # set the category
+            return True
+    return False
 
 
 def write_to_csv(paper):
@@ -217,16 +120,10 @@ def write_to_csv(paper):
     
     (Function implementation to be added later.)
     """
-    pass
+    with open("data/icml_papers.csv", "a", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(paper.values())
 
 
 if __name__ == "__main__":
-    icml_url = "https://icml.cc/virtual/2024/papers.html?filter=titles"
-    print(f"Collecting papers from {icml_url}...")
-    
-    paper_links = get_paper_links(icml_url)
-    
-    for link in paper_links:
-        print(link)
-
-    print(f"Found {len(paper_links)} final paper links:")
+    pass
