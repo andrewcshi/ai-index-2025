@@ -169,7 +169,7 @@ def get_paper_attributes(url):
         header = abstract_section.find(['h2', 'h3'])
         if header:
             header.extract()
-        attributes["abstract"] = abstract_section.get_text(" ", strip=True)
+        attributes["abstract"] = abstract_section.get_text(" ", strip=True).replace("\n", " ")
     else:
         attributes["abstract"] = ""
 
@@ -225,7 +225,8 @@ def write_to_csv(paper):
     """
     Writes the paper to a CSV file.
     """
-    with open("aaai_papers.csv", "a", newline="", encoding="utf-8") as f:
+    
+    with open("data/aaai_papers.csv", "a", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
         writer.writerow(paper.values())
 
@@ -252,6 +253,11 @@ if __name__ == "__main__":
                     papers.append(paper_data)
             except Exception as exc:
                 print(f"error processing {url}: {exc}")
+
+    header_row = ["link", "category", "title", "abstract", "keywords", "ccs_concepts", "author_names", "author_affiliations", "author_countries"]
+    with open("data/aaai_papers.csv", "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(header_row)
 
     # process the collected papers and write valid ones to CSV
     for paper in papers:
