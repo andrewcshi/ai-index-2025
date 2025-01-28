@@ -1,1 +1,76 @@
-__pycache__/
+# --------------------
+# Python
+# --------------------
+**/__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+pip-wheel-metadata/
+*.egg-info
+
+# If you're using virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+**/index/
+
+# --------------------
+# Jupyter Notebooks
+# --------------------
+.ipynb_checkpoints/
+
+# --------------------
+# macOS
+# --------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# --------------------
+# Node.js
+# --------------------
+node_modules/
+npm-debug.log
+yarn-error.log
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# --------------------
+# Logs & Reports
+# --------------------
+*.log
+*.log.*
+
+# --------------------
+# IDEs and Editors
+# --------------------
+# Visual Studio Code
+.vscode/
+.history/
+
+# JetBrains (PyCharm, IDEA, etc.)
+.idea/
+*.iml
+
+# Sublime
+*.sublime-project
+*.sublime-workspace
+
+# Eclipse
+.project
+.settings/
+.classpath
+
+# --------------------
+# Environment Files
+# --------------------
+*.env
+.env.*
