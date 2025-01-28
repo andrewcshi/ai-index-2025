@@ -4,9 +4,6 @@ import requests
 from bs4 import BeautifulSoup
 import os
 
-# ----------------------------
-# YOUR KEYWORDS DICTIONARY
-# ----------------------------
 KEYWORDS = {
     "Transparency & Explainability": [
         'Algorithmic Transparency',
@@ -85,15 +82,7 @@ KEYWORDS = {
     ],
 }
 
-# ----------------------------
-# HELPER: DETERMINE IF PAPER IS VALID
-# ----------------------------
 def valid_paper(paper):
-    """
-    Determines whether the paper is valid based on the presence of any keywords
-    in the title, abstract, keywords or CCS concepts. If a match is found, updates
-    the paper's category accordingly.
-    """
     for category, keywords in KEYWORDS.items():
         text_title = paper.get("title", "").lower()
         text_abstract = paper.get("abstract", "").lower()
@@ -112,13 +101,7 @@ def valid_paper(paper):
                 return True
     return False
 
-# ----------------------------
-# HELPER: WRITE A ROW TO CSV
-# ----------------------------
 def write_to_csv(paper, filename="data/facct_papers.csv"):
-    """
-    Writes the paper to a CSV file in append mode.
-    """
     with open(filename, "a", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
         writer.writerow([
@@ -133,11 +116,7 @@ def write_to_csv(paper, filename="data/facct_papers.csv"):
             paper.get("author_countries", [])
         ])
 
-# ----------------------------
-# HELPERS FOR FAcT PAPER
-# ----------------------------
 def convert_doi_link(doi_link):
-    """Convert a short 'doi.org/...' link to the full ACM link."""
     base_url = "https://dl.acm.org/doi/fullHtml/10.1145/"
     doi_number = doi_link.split("/")[-1]
     return f"{base_url}{doi_number}"
@@ -248,14 +227,7 @@ def get_facct_paper(url):
     paper["author_countries"] = []  # Not parsed here
     return paper
 
-# ----------------------------
-# HELPER: READ ALREADY-PROCESSED LINKS
-# ----------------------------
 def get_already_processed_links(csv_filename="data/facct_papers.csv"):
-    """
-    Returns a set of link URLs that have already been processed and stored in the CSV.
-    If the file doesn't exist yet, returns an empty set.
-    """
     if not os.path.exists(csv_filename):
         return set()
     
@@ -269,9 +241,6 @@ def get_already_processed_links(csv_filename="data/facct_papers.csv"):
                 processed_links.add(link)
     return processed_links
 
-# ----------------------------
-# MAIN
-# ----------------------------
 if __name__ == "__main__":
     csv_filename = "data/facct_papers.csv"
 
