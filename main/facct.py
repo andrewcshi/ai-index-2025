@@ -224,7 +224,8 @@ def get_already_processed_links(csv_filename="data/facct_papers.csv"):
 if __name__ == "__main__":
     csv_filename = "data/facct_papers.csv"
     base_url = "https://doi.org/10.1145/3630106.365"
-    links = [f"{base_url}{i}" for i in range(8537, 8550)]
+    links = [f"{base_url}{i}" for i in range(8537, 9052)]
+    print(f"Total papers: {len(links)}")
     if not os.path.exists(csv_filename):
         header_row = [
             "link",
@@ -250,4 +251,5 @@ if __name__ == "__main__":
         if valid_paper(paper_data):
             write_to_csv(paper_data, filename=csv_filename)
         processed_links.add(link)
+        print(f"Processed {processed_count} papers.")
         time.sleep(random.randint(40, 50))
