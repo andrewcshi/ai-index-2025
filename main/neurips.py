@@ -95,10 +95,19 @@ def get_author_affiliations(link):
             affiliations.append("")
     return affiliations
 
-def get_category(title, abstract):
+def get_keywords(url):
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, "html.parser")
+    inst = soup.find("span", class_="note-content-value")
+    keywords = inst.text.strip().split(",")
+    keywords = [kw.strip() for kw in keywords]
+    return keywords
+
+def get_category(title, abstract, keywords_):
+    keywords_ = [kw.lower() for kw in keywords_]
     for category, keywords in KEYWORDS.items():
         for kw in keywords:
-            if kw.lower() in title.lower() or kw.lower() in abstract.lower():
+            if kw.lower() in title.lower() or kw.lower() in abstract.lower() or kw.lower() in keywords_:
                 return category
     return None
 
@@ -144,15 +153,16 @@ if __name__ == "__main__":
         abstract = parse_abstract_from_meta("html/neurips_html.html")
         authors = parse_authors_from_meta("html/neurips_html.html")
         author_affiliations = get_author_affiliations(link)
-        
-        category = get_category(title, abstract)
+        keywords = get_keywords(link)
+        category = get_category(title, abstract, keywords)
+
         if category:
             paper = {
                 "link": link,
                 "category": category,
                 "title": title,
                 "abstract": abstract,
-                "keywords": [], 
+                "keywords": keywords, 
                 "ccs_concepts": "",
                 "author_names": authors,
                 "author_affiliations": author_affiliations,
