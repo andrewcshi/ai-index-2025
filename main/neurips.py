@@ -60,10 +60,10 @@ def parse_abstract_from_meta(filename):
     soup = BeautifulSoup(html_content, "html.parser")
     meta_description = soup.find("meta", attrs={"name": "description"})
     if meta_description:
-        return meta_description.get("content", "").strip()
+        return meta_description.get("content", "").strip().replace('\n', ' ')
     meta_og_description = soup.find("meta", property="og:description")
     if meta_og_description:
-        return meta_og_description.get("content", "").strip()
+        return meta_og_description.get("content", "").strip().replace('\n', ' ')
     return ""
 
 def parse_authors_from_meta(filename):
