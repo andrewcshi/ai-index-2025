@@ -20,6 +20,7 @@ env/
 .venv/
 
 **/index/
+**/html/
 
 # --------------------
 # Jupyter Notebooks
