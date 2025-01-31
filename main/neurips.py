@@ -71,6 +71,8 @@ def parse_authors_from_meta(filename):
         html_content = f.read()
     soup = BeautifulSoup(html_content, "html.parser")
     author_metas = soup.find_all("meta", attrs={"name": "citation_author"})
+    if not author_metas:
+        return []
     return [m.get("content", "").strip() for m in author_metas]
 
 def get_author_affiliations(link):
@@ -99,6 +101,8 @@ def get_keywords(url):
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
     inst = soup.find("span", class_="note-content-value")
+    if not inst:
+        return []
     keywords = inst.text.strip().split(",")
     keywords = [kw.strip() for kw in keywords]
     return keywords
@@ -143,6 +147,9 @@ if __name__ == "__main__":
 
     for i in range(len(links)):
         link = links[i]
+
+        if i < 3766:
+            continue
 
         if link in processed_links:
             print(f"Already processed: {link}")
