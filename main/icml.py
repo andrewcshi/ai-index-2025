@@ -135,7 +135,7 @@ if __name__ == "__main__":
     for i in range(len(links)):
         link = links[i]
 
-        if i < 199:
+        if i < 497:
             continue
         if link in processed_links:
             print(f"Already processed: {link}")
@@ -178,4 +178,4 @@ if __name__ == "__main__":
         else:
             print(f"Invalid paper: {link}, paper # {i}")
 
-        time.sleep(random.randint(2, 4))
+        time.sleep(random.randint(1, 2))

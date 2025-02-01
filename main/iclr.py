@@ -60,10 +60,10 @@ def parse_abstract_from_meta(filename):
     soup = BeautifulSoup(html_content, "html.parser")
     meta_description = soup.find("meta", attrs={"name": "description"})
     if meta_description:
-        return meta_description.get("content", "").strip()
+        return meta_description.get("content", "").strip().replace('\n', ' ')
     meta_og_description = soup.find("meta", property="og:description")
     if meta_og_description:
-        return meta_og_description.get("content", "").strip()
+        return meta_og_description.get("content", "").strip().replace('\n', ' ')
     return ""
 
 def parse_authors_from_meta(filename):
@@ -71,6 +71,8 @@ def parse_authors_from_meta(filename):
         html_content = f.read()
     soup = BeautifulSoup(html_content, "html.parser")
     author_metas = soup.find_all("meta", attrs={"name": "citation_author"})
+    if not author_metas:
+        return []
     return [m.get("content", "").strip() for m in author_metas]
 
 def get_author_affiliations(link):
@@ -95,10 +97,21 @@ def get_author_affiliations(link):
             affiliations.append("")
     return affiliations
 
-def get_category(title, abstract):
+def get_keywords(url):
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, "html.parser")
+    inst = soup.find("span", class_="note-content-value")
+    if not inst:
+        return []
+    keywords = inst.text.strip().split(",")
+    keywords = [kw.strip() for kw in keywords]
+    return keywords
+
+def get_category(title, abstract, keywords_):
+    keywords_ = [kw.lower() for kw in keywords_]
     for category, keywords in KEYWORDS.items():
         for kw in keywords:
-            if kw.lower() in title.lower() or kw.lower() in abstract.lower():
+            if kw.lower() in title.lower() or kw.lower() in abstract.lower() or kw.lower() in keywords_:
                 return category
     return None
 
@@ -144,15 +157,16 @@ if __name__ == "__main__":
         abstract = parse_abstract_from_meta("html/iclr_html.html")
         authors = parse_authors_from_meta("html/iclr_html.html")
         author_affiliations = get_author_affiliations(link)
-        
-        category = get_category(title, abstract)
+        keywords = get_keywords(link)
+        category = get_category(title, abstract, keywords)
+
         if category:
             paper = {
                 "link": link,
                 "category": category,
                 "title": title,
                 "abstract": abstract,
-                "keywords": [], 
+                "keywords": keywords, 
                 "ccs_concepts": "",
                 "author_names": authors,
                 "author_affiliations": author_affiliations,
@@ -176,4 +190,4 @@ if __name__ == "__main__":
         else:
             print(f"Invalid paper: {link}, paper # {i}")
 
-        time.sleep(random.randint(2, 4))
+        time.sleep(random.randint(1, 2))
