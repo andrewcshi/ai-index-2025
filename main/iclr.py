@@ -148,6 +148,9 @@ if __name__ == "__main__":
     for i in range(len(links)):
         link = links[i]
 
+        if i < 677:
+            continue
+
         if link in processed_links:
             print(f"Already processed: {link}")
             continue
