@@ -1,8 +1,8 @@
-## 2025 AI Index Report
+# 2025 AI Index Report
 
 This repository contains the code used to scrape {AAAI, AIES, FAccT, ICML, ICLR, NeurIPS} papers from their respective conference websites.
 
-### To run main conference scrapers:
+## To run main conference scrapers:
 
 First, clone the repository:
 
