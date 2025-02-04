@@ -5,4 +5,6 @@ python main/aaai.py
 python main/aies.py
 python main/facct.py
 python main/icml.py
+python main/iclr.py
+python main/neurips.py
 ```
