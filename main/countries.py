@@ -32,16 +32,14 @@ for _, r in city_df.iterrows():
             city_dict[c_ascii] = c_country
 
 synonyms = {
-    # Make sure "USA" is recognized:
     "usa": "United States",
-    "USA": "United States",  # Explicitly added
+    "USA": "United States",
     "u.s.a.": "United States",
     "u.s.a": "United States",
     "china": "China",
     "uk": "United Kingdom",
     "u.k.": "United Kingdom",
     "russia": "Russian Federation",
-    # etc.
 }
 
 nationality_dict = {
@@ -53,7 +51,6 @@ nationality_dict = {
     "indian": "India",
     "british": "United Kingdom",
     "american": "United States",
-    # etc.
 }
 
 tld_country_map = {
@@ -67,8 +64,7 @@ tld_country_map = {
     ".edu.sg": "Singapore",
     ".edu.tw": "Taiwan",
     ".edu.au": "Australia",
-    ".edu": "United States",  # often US, but not guaranteed
-    # etc.
+    ".edu": "United States",
 }
 
 lower_inst = {k.lower(): v for k, v in inst_dict.items()}
@@ -79,6 +75,7 @@ pycountry_names = [c.name.lower() for c in all_py_countries]
 ###############################################################################
 # 1) Helpers
 ###############################################################################
+
 def levenshtein_similarity(a, b):
     """Normalized Levenshtein similarity."""
     if not a or not b:
@@ -105,7 +102,6 @@ def analyze_token(token):
     # 1) Email TLD check
     emails = re.findall(r"[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}", txt)
     for email in emails:
-        # Check from longest to shortest TLD
         for tld in sorted(tld_country_map.keys(), key=lambda x: -len(x)):
             if email.endswith(tld):
                 results.append((tld_country_map[tld], 0.9))
@@ -184,6 +180,7 @@ def get_country_and_confidence(affil_str):
 ###############################################################################
 # 2) Multi-pass routine for a single DataFrame
 ###############################################################################
+
 def run_multi_pass(df_data, pass1_threshold=0.6, recheck_threshold=0.6):
     """
     Given a DataFrame with "author_affiliations",
@@ -196,6 +193,7 @@ def run_multi_pass(df_data, pass1_threshold=0.6, recheck_threshold=0.6):
     ###########################################################################
     # PASS 1: Basic token-level assignment
     ###########################################################################
+
     pass1_countries_list = []
     pass1_confidences_list = []
 
@@ -238,6 +236,7 @@ def run_multi_pass(df_data, pass1_threshold=0.6, recheck_threshold=0.6):
     ###########################################################################
     # PASS 2: Row-level majority correction
     ###########################################################################
+
     pass2_countries_list = []
     for idx, row in df_data.iterrows():
         row_countries = row["pass1_countries"]
@@ -287,6 +286,7 @@ def run_multi_pass(df_data, pass1_threshold=0.6, recheck_threshold=0.6):
     ###########################################################################
     # PASS 2.5: If top country is >60% of assigned, unify
     ###########################################################################
+
     pass2_5_countries_list = []
     for idx, row in df_data.iterrows():
         row_countries = row["pass2_countries"]
@@ -316,6 +316,7 @@ def run_multi_pass(df_data, pass1_threshold=0.6, recheck_threshold=0.6):
     ###########################################################################
     # PASS 3: Global unification for repeated affiliation strings
     ###########################################################################
+
     final_affil_assignments = {}
     for affil_str, cvals in all_affils_cache.items():
         aggregator = defaultdict(float)
@@ -366,6 +367,7 @@ def run_multi_pass(df_data, pass1_threshold=0.6, recheck_threshold=0.6):
 # 3) Master function to process multiple files, handle outliers, remove Turkey/Burma,
 #    then do a final pass to unify minority countries if there's a single >50% majority
 ###############################################################################
+
 def process_all_files(
     data_paths,
     pass1_threshold=0.6,
@@ -541,8 +543,9 @@ def process_all_files(
     return big_df  # if you want the final DataFrame in memory
 
 ###############################################################################
-# 4) Example usage
+# 4) Run script
 ###############################################################################
+
 def __main__():
     data_paths = [
         "../data/aaai_papers.csv",
