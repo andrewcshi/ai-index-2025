@@ -24,7 +24,7 @@ def print_stats(filename, stats):
     print(f"Privacy & Data papers: {stats[4]}")
 
 def main():
-    filenames = ["aaai_papers.csv", "aies_papers.csv", "icml_papers.csv", "facct_papers.csv", "iclr_papers.csv", "neurips_papers.csv"]
+    filenames = ["data/aaai_papers.csv", "data/aies_papers.csv", "data/icml_papers.csv", "data/facct_papers.csv", "data/iclr_papers.csv", "data/neurips_papers.csv"]
     for filename in filenames:
         stats = get_stats(filename)
         print_stats(filename, stats)
