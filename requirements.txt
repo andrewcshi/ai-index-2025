@@ -1,6 +1,6 @@
 pandas
 Levenshtein
-pycountry
-requests
-beautifulsoup4
-concurrent-futures
+pycountry==22.3.5
+requests==2.31.0
+beautifulsoup4==4.0.1
+futures==3.0.0
