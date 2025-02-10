@@ -31,5 +31,5 @@ python main/neurips.py
 To print statistics for the papers, run the following command:
 
 ```
-python data/stats.py
+python data/all_stats.py
 ```
