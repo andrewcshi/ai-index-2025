@@ -9,7 +9,7 @@ from collections import Counter, defaultdict
 # 0) Data Loading (Institutions, Cities, etc.)
 ###############################################################################
 
-inst_df = pd.read_csv("institutions.csv")
+inst_df = pd.read_csv("datasets/institutions.csv")
 inst_dict = {}
 for _, r in inst_df.iterrows():
     name = r.get("name", "")
@@ -20,7 +20,7 @@ for _, r in inst_df.iterrows():
         if name:
             inst_dict[name] = country
 
-city_df = pd.read_csv("cities.csv")
+city_df = pd.read_csv("datasets/cities.csv")
 city_dict = {}
 for _, r in city_df.iterrows():
     c_ascii = r.get("city_ascii", "")
@@ -548,12 +548,12 @@ def process_all_files(
 
 def __main__():
     data_paths = [
-        "../data/aaai_papers.csv",
-        "../data/aies_papers.csv",
-        "../data/facct_papers.csv",
-        "../data/icml_papers.csv",
-        "../data/iclr_papers.csv",
-        "../data/neurips_papers.csv"
+        "data/2024/aaai2024.csv",
+        "data/2024/aies2024.csv",
+        "data/2024/facct2024.csv",
+        "data/2024/icml2024.csv",
+        "data/2024/iclr2024.csv",
+        "data/2024/neurips2024.csv"
     ]
     _ = process_all_files(data_paths)
 
