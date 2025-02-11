@@ -1,20 +1,14 @@
 import pandas as pd
 
 def combine_csv_files(file_paths, output_file):
-    # List to hold dataframes
     dataframes = []
 
-    # Iterate over all file paths
     for file_path in file_paths:
-        # Read the CSV file into a DataFrame
         df = pd.read_csv(file_path)
-        # Append the DataFrame to the list
         dataframes.append(df)
 
-    # Concatenate all DataFrames in the list into a single DataFrame
     combined_df = pd.concat(dataframes, ignore_index=True)
 
-    # Write the combined DataFrame to a new CSV file
     combined_df.to_csv(output_file, index=False)
 
 aaai_files = [
