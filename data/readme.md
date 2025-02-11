@@ -309,11 +309,11 @@
 ### AAAI
 
 - Total Papers: 2342
-- Total Filtered Papers: 16
-- Total Transparency & Explainability Papers: 4
-- Total Fairness & Bias Papers: 4
-- Total Security Papers: 7
-- Total Privacy & Data Papers: 1
+- Total Filtered Papers: 721
+- Total Transparency & Explainability Papers: 232
+- Total Fairness & Bias Papers: 222
+- Total Security Papers: 218
+- Total Privacy & Data Papers: 49
 
 ### AIES
 

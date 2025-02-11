@@ -15,12 +15,12 @@ Below are the statistics for 2024 papers for each conference.
 
 ### AAAI
 
-- Papers: 75
-- Filtered papers: 16
-- Transparency & Explainability papers: 4
-- Fairness & Bias papers: 4
-- Security papers: 7
-- Privacy & Data papers: 1
+- Papers: 2342
+- Filtered papers: 721
+- Transparency & Explainability papers: 232
+- Fairness & Bias papers: 222
+- Security papers: 218
+- Privacy & Data papers: 49
 
 ### AIES
 

@@ -231,7 +231,7 @@ def write_to_csv(paper):
 
 
 if __name__ == "__main__":
-    issue_url = "https://ojs.aaai.org/index.php/AAAI/issue/view/576"
+    issue_url = "https://ojs.aaai.org/index.php/AAAI/issue/view/597"
     print(f"collecting papers from {issue_url}...")
 
     # get all paper links from the issue page
