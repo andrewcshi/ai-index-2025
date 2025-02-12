@@ -13,8 +13,6 @@
 
 ## 2019
 
-### All conferences
-
 ### AAAI
 
 - Total Papers: 1150
@@ -70,8 +68,6 @@
 - Total Privacy & Data Papers: 32
 
 ## 2020
-
-### All conferences
 
 ### AAAI
 
@@ -129,8 +125,6 @@
 
 ## 2021
 
-### All conferences
-
 ### AAAI
 
 - Total Papers: 1692
@@ -186,8 +180,6 @@
 - Total Privacy & Data Papers: 105
 
 ## 2022
-
-### All conferences
 
 ### AAAI
 
@@ -245,8 +237,6 @@
 
 ## 2023
 
-### All conferences
-
 ### AAAI
 
 - Total Papers: 1721
@@ -303,8 +293,6 @@
 
  
 ## 2024
-
-### All conferences
 
 ### AAAI
 
