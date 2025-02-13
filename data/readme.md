@@ -9,7 +9,7 @@
 - Total Transparency & Explainability Papers: 1
 - Total Fairness & Bias Papers: 5
 - Total Security Papers: 3
-- Total Privacy & Data Papers: 0
+- Total Privacy & Data Governance Papers: 0
 
 ## 2019
 
@@ -20,7 +20,7 @@
 - Total Transparency & Explainability Papers: 11
 - Total Fairness & Bias Papers: 7
 - Total Security Papers: 33
-- Total Privacy & Data Papers: 1
+- Total Privacy & Data Governance Papers: 1
 
 ### AIES
 
@@ -29,7 +29,7 @@
 - Total Transparency & Explainability Papers: 5
 - Total Fairness & Bias Papers: 8
 - Total Security Papers: 1
-- Total Privacy & Data Papers: 0
+- Total Privacy & Data Governance Papers: 0
 
 ### FAccT
 
@@ -38,7 +38,7 @@
 - Total Transparency & Explainability Papers: 10
 - Total Fairness & Bias Papers: 17
 - Total Security Papers: 1
-- Total Privacy & Data Papers: 0
+- Total Privacy & Data Governance Papers: 0
 
 ### ICLR
 
@@ -47,7 +47,7 @@
 - Total Transparency & Explainability Papers: 11
 - Total Fairness & Bias Papers: 0
 - Total Security Papers: 32
-- Total Privacy & Data Papers: 2
+- Total Privacy & Data Governance Papers: 2
 
 ### ICML
 
@@ -56,7 +56,7 @@
 - Total Transparency & Explainability Papers: 13
 - Total Fairness & Bias Papers: 10
 - Total Security Papers: 24
-- Total Privacy & Data Papers: 4
+- Total Privacy & Data Governance Papers: 4
 
 ### NeurIPS
 
@@ -65,7 +65,7 @@
 - Total Transparency & Explainability Papers: 39
 - Total Fairness & Bias Papers: 15
 - Total Security Papers: 71
-- Total Privacy & Data Papers: 32
+- Total Privacy & Data Governance Papers: 32
 
 ## 2020
 
@@ -76,7 +76,7 @@
 - Total Transparency & Explainability Papers: 19
 - Total Fairness & Bias Papers: 27
 - Total Security Papers: 65
-- Total Privacy & Data Papers: 5
+- Total Privacy & Data Governance Papers: 5
 
 ### AIES
 
@@ -85,7 +85,7 @@
 - Total Transparency & Explainability Papers: 5
 - Total Fairness & Bias Papers: 4
 - Total Security Papers: 2
-- Total Privacy & Data Papers: 0
+- Total Privacy & Data Governance Papers: 0
 
 ### FAccT
 
@@ -94,7 +94,7 @@
 - Total Transparency & Explainability Papers: 20
 - Total Fairness & Bias Papers: 36
 - Total Security Papers: 3
-- Total Privacy & Data Papers: 5
+- Total Privacy & Data Governance Papers: 5
 
 ### ICLR
 
@@ -103,7 +103,7 @@
 - Total Transparency & Explainability Papers: 15
 - Total Fairness & Bias Papers: 3
 - Total Security Papers: 41
-- Total Privacy & Data Papers: 5
+- Total Privacy & Data Governance Papers: 5
 
 ### ICML
 
@@ -112,7 +112,7 @@
 - Total Transparency & Explainability Papers: 21
 - Total Fairness & Bias Papers: 13
 - Total Security Papers: 33
-- Total Privacy & Data Papers: 12
+- Total Privacy & Data Governance Papers: 12
 
 ### NeurIPS
 
@@ -121,7 +121,7 @@
 - Total Transparency & Explainability Papers: 54
 - Total Fairness & Bias Papers: 15
 - Total Security Papers: 24
-- Total Privacy & Data Papers: 97
+- Total Privacy & Data Governance Papers: 97
 
 ## 2021
 
@@ -132,7 +132,7 @@
 - Total Transparency & Explainability Papers: 48
 - Total Fairness & Bias Papers: 38
 - Total Security Papers: 75
-- Total Privacy & Data Papers: 15
+- Total Privacy & Data Governance Papers: 15
 
 ### AIES
 
@@ -141,7 +141,7 @@
 - Total Transparency & Explainability Papers: 10
 - Total Fairness & Bias Papers: 27
 - Total Security Papers: 3
-- Total Privacy & Data Papers: 3
+- Total Privacy & Data Governance Papers: 3
 
 ### FAccT   
 
@@ -150,7 +150,7 @@
 - Total Transparency & Explainability Papers: 32
 - Total Fairness & Bias Papers: 39
 - Total Security Papers: 6
-- Total Privacy & Data Papers: 4
+- Total Privacy & Data Governance Papers: 4
 
 ### ICLR
 
@@ -159,7 +159,7 @@
 - Total Transparency & Explainability Papers: 30
 - Total Fairness & Bias Papers: 9
 - Total Security Papers: 51
-- Total Privacy & Data Papers: 6
+- Total Privacy & Data Governance Papers: 6
 
 ### ICML
 
@@ -168,7 +168,7 @@
 - Total Transparency & Explainability Papers: 16
 - Total Fairness & Bias Papers: 8
 - Total Security Papers: 37
-- Total Privacy & Data Papers: 17
+- Total Privacy & Data Governance Papers: 17
 
 ### NeurIPS
 
@@ -177,7 +177,7 @@
 - Total Transparency & Explainability Papers: 63
 - Total Fairness & Bias Papers: 29
 - Total Security Papers: 43
-- Total Privacy & Data Papers: 105
+- Total Privacy & Data Governance Papers: 105
 
 ## 2022
 
@@ -188,7 +188,7 @@
 - Total Transparency & Explainability Papers: 44
 - Total Fairness & Bias Papers: 29
 - Total Security Papers: 64
-- Total Privacy & Data Papers: 13
+- Total Privacy & Data Governance Papers: 13
 
 ### AIES
 
@@ -197,7 +197,7 @@
 - Total Transparency & Explainability Papers: 7
 - Total Fairness & Bias Papers: 13
 - Total Security Papers: 3
-- Total Privacy & Data Papers: 0
+- Total Privacy & Data Governance Papers: 0
 
 ### FAccT   
 
@@ -206,7 +206,7 @@
 - Total Transparency & Explainability Papers: 42
 - Total Fairness & Bias Papers: 75
 - Total Security Papers: 16
-- Total Privacy & Data Papers:7
+- Total Privacy & Data Governance Papers:7
 
 ### ICLR
 
@@ -215,7 +215,7 @@
 - Total Transparency & Explainability Papers: 25
 - Total Fairness & Bias Papers: 11
 - Total Security Papers: 9
-- Total Privacy & Data Papers: 9
+- Total Privacy & Data Governance Papers: 9
 
 ### ICML
 
@@ -224,7 +224,7 @@
 - Total Transparency & Explainability Papers: 24
 - Total Fairness & Bias Papers: 7
 - Total Security Papers: 41
-- Total Privacy & Data Papers: 15
+- Total Privacy & Data Governance Papers: 15
 
 ### NeurIPS
 
@@ -233,7 +233,7 @@
 - Total Transparency & Explainability Papers: 89
 - Total Fairness & Bias Papers: 34
 - Total Security Papers: 152
-- Total Privacy & Data Papers: 48
+- Total Privacy & Data Governance Papers: 48
 
 ## 2023
 
@@ -244,7 +244,7 @@
 - Total Transparency & Explainability Papers: 54
 - Total Fairness & Bias Papers: 36
 - Total Security Papers: 78
-- Total Privacy & Data Papers: 18
+- Total Privacy & Data Governance Papers: 18
 
 ### AIES
 
@@ -253,7 +253,7 @@
 - Total Transparency & Explainability Papers: 10
 - Total Fairness & Bias Papers: 33
 - Total Security Papers: 13
-- Total Privacy & Data Papers: 1
+- Total Privacy & Data Governance Papers: 1
 
 ### FAccT
 
@@ -262,7 +262,7 @@
 - Total Transparency & Explainability Papers: 46
 - Total Fairness & Bias Papers: 65
 - Total Security Papers: 11
-- Total Privacy & Data Papers: 6
+- Total Privacy & Data Governance Papers: 6
 
 ### ICLR
 
@@ -271,7 +271,7 @@
 - Total Transparency & Explainability Papers: 56
 - Total Fairness & Bias Papers: 27
 - Total Security Papers: 77
-- Total Privacy & Data Papers: 21
+- Total Privacy & Data Governance Papers: 21
 
 ### ICML
 
@@ -280,7 +280,7 @@
 - Total Transparency & Explainability Papers: 44
 - Total Fairness & Bias Papers: 5
 - Total Security Papers: 9
-- Total Privacy & Data Papers: 7
+- Total Privacy & Data Governance Papers: 7
 
 ### NeurIPS
 
@@ -289,7 +289,7 @@
 - Total Transparency & Explainability Papers: 183
 - Total Fairness & Bias Papers: 46
 - Total Security Papers: 88
-- Total Privacy & Data Papers: 160
+- Total Privacy & Data Governance Papers: 160
 
  
 ## 2024
@@ -297,53 +297,53 @@
 ### AAAI
 
 - Total Papers: 2342
-- Total Filtered Papers: 721
+- Total Filtered Papers: 826
 - Total Transparency & Explainability Papers: 232
-- Total Fairness & Bias Papers: 222
-- Total Security Papers: 218
-- Total Privacy & Data Papers: 49
+- Total Fairness & Bias Papers: 261
+- Total Security Papers: 272
+- Total Privacy & Data Governance Papers: 61
 
 ### AIES
 
 - Total Papers: 150
-- Total Filtered Papers: 95
+- Total Filtered Papers: 116
 - Total Transparency & Explainability Papers: 35
-- Total Fairness & Bias Papers: 40
-- Total Security Papers: 16
-- Total Privacy & Data Papers: 4
+- Total Fairness & Bias Papers: 48
+- Total Security Papers: 26
+- Total Privacy & Data Governance Papers: 7
 
 ### FAccT
 
 - Total Papers: 175
-- Total Filtered Papers: 121
+- Total Filtered Papers: 160
 - Total Transparency & Explainability Papers: 50
-- Total Fairness & Bias Papers: 63
-- Total Security Papers: 7
-- Total Privacy & Data Papers: 1
+- Total Fairness & Bias Papers: 83
+- Total Security Papers: 19
+- Total Privacy & Data Governance Papers: 8
 
 ### ICLR
 
 - Total Papers: 2250
-- Total Filtered Papers: 435
+- Total Filtered Papers: 459
 - Total Transparency & Explainability Papers: 91
-- Total Fairness & Bias Papers: 199
-- Total Security Papers: 114
-- Total Privacy & Data Papers: 31
+- Total Fairness & Bias Papers: 206
+- Total Security Papers: 130
+- Total Privacy & Data Governance Papers: 32
 
 ### ICML        
 
 - Total Papers: 2610
-- Total Filtered Papers: 506
+- Total Filtered Papers: 544
 - Total Transparency & Explainability Papers: 106
-- Total Fairness & Bias Papers: 207
-- Total Security Papers: 134
-- Total Privacy & Data Papers: 59
+- Total Fairness & Bias Papers: 213
+- Total Security Papers: 162
+- Total Privacy & Data Governance Papers: 63
 
 ### NeurIPS
 
 - Total Papers: 4037
-- Total Filtered Papers: 807
-- Total Transparency & Explainability Papers: 202
-- Total Fairness & Bias Papers: 310
-- Total Security Papers: 215
-- Total Privacy & Data Papers: 80
+- Total Filtered Papers: 885
+- Total Transparency & Explainability Papers: 206
+- Total Fairness & Bias Papers: 331
+- Total Security Papers: 257
+- Total Privacy & Data Governance Papers: 91
