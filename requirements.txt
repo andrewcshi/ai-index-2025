@@ -4,3 +4,8 @@ pycountry==22.3.5
 requests==2.31.0
 beautifulsoup4==4.0.1
 futures==3.0.0
+tensorflow
+seaborn
+matplotlib
+keras
+scikit-image
